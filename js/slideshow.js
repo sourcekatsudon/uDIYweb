@@ -3,42 +3,35 @@ let slides = [];
 let slideInterval;
 
 async function loadSlideImages() {
-    try {
-        const response = await fetch('/api/eyecatch-images');
-        const images = await response.json();
-        
-        if (images.length === 0) {
-            const defaultImages = [
-                '../eyecatch/slide1.jpg',
-                '../eyecatch/slide2.jpg',
-                '../eyecatch/slide3.jpg'
-            ];
-            images.push(...defaultImages);
-        }
-        
-        const slideshowContainer = document.getElementById('slideshow');
-        const dotsContainer = document.getElementById('dots');
-        
-        images.forEach((imagePath, index) => {
-            const slide = document.createElement('div');
-            slide.className = 'slide';
-            slide.innerHTML = `<img src="${imagePath}" alt="Slide ${index + 1}">`;
-            slideshowContainer.appendChild(slide);
-            
-            const dot = document.createElement('span');
-            dot.className = 'dot';
-            if (index === 0) dot.classList.add('active');
-            dot.onclick = () => goToSlide(index);
-            dotsContainer.appendChild(dot);
-        });
-        
-        slides = document.querySelectorAll('.slide');
-        startSlideshow();
-        
-    } catch (error) {
-        console.log('APIが利用できないため、デフォルト画像を使用します');
+    // eyecatchフォルダ内の画像を直接指定
+    const images = [
+        '../eyecatch/images.jpeg',
+        '../eyecatch/products_layer_m2.png'
+    ];
+    
+    const slideshowContainer = document.getElementById('slideshow');
+    const dotsContainer = document.getElementById('dots');
+    
+    if (images.length === 0) {
         loadDefaultSlides();
+        return;
     }
+    
+    images.forEach((imagePath, index) => {
+        const slide = document.createElement('div');
+        slide.className = 'slide';
+        slide.innerHTML = `<img src="${imagePath}" alt="Slide ${index + 1}">`;
+        slideshowContainer.appendChild(slide);
+        
+        const dot = document.createElement('span');
+        dot.className = 'dot';
+        if (index === 0) dot.classList.add('active');
+        dot.onclick = () => goToSlide(index);
+        dotsContainer.appendChild(dot);
+    });
+    
+    slides = document.querySelectorAll('.slide');
+    startSlideshow();
 }
 
 function loadDefaultSlides() {
