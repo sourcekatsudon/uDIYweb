@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="{LANG}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{TITLE}</title>
+    <meta name="description" content="{DESCRIPTION}">
+    
+    <!-- Hreflang attributes -->
+    <link rel="alternate" hreflang="ja" href="/ja/{PAGE_PATH}">
+    <link rel="alternate" hreflang="en" href="/en/{PAGE_PATH}">
+    <link rel="alternate" hreflang="zh" href="/zh/{PAGE_PATH}">
+    <link rel="alternate" hreflang="es" href="/es/{PAGE_PATH}">
+    <link rel="alternate" hreflang="x-default" href="/ja/{PAGE_PATH}">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="{TITLE}">
+    <meta property="og:description" content="{DESCRIPTION}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{CANONICAL_URL}">
+    <meta property="og:locale" content="{OG_LOCALE}">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="{CANONICAL_URL}">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/slideshow.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-top">
+            <div class="container">
+                <div class="logo-wrapper">
+                    <a href="/{LANG}/" class="logo">
+                        <svg width="200" height="40" viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="5" y="5" width="30" height="30" fill="#0066cc" rx="5"/>
+                            <circle cx="20" cy="20" r="8" fill="white"/>
+                            <text x="45" y="25" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#333">{SITE_TITLE}</text>
+                        </svg>
+                    </a>
+                    <span class="logo-tagline">{TAGLINE}</span>
+                </div>
+                <div class="header-controls">
+                    <div class="language-selector">
+                        <select onchange="changeLanguage(this.value)" aria-label="Language">
+                            <option value="ja" {SELECTED_JA}>🇯🇵 日本語</option>
+                            <option value="en" {SELECTED_EN}>🇺🇸 English</option>
+                            <option value="zh" {SELECTED_ZH}>🇨🇳 中文</option>
+                            <option value="es" {SELECTED_ES}>🇪🇸 Español</option>
+                        </select>
+                    </div>
+                    <div class="search-wrapper">
+                        <input type="search" placeholder="{SEARCH_PLACEHOLDER}" class="search-input" aria-label="Search">
+                        <button class="search-button" aria-label="Search">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="8" cy="8" r="7" stroke="#666" stroke-width="2"/>
+                                <path d="M13 13L18 18" stroke="#666" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="main-nav">
+            <div class="container">
+                <ul class="nav-list">
+                    <li><a href="/{LANG}/howto/">{NAV_HOWTO}</a></li>
+                    <li><a href="/{LANG}/database/">{NAV_DATABASE}</a></li>
+                    <li><a href="/{LANG}/case-study/">{NAV_CASESTUDY}</a></li>
+                    <li><a href="/{LANG}/experiment/">{NAV_EXPERIMENT}</a></li>
+                    <li><a href="/{LANG}/store/">{NAV_STORE}</a></li>
+                    <li><a href="/{LANG}/support/">{NAV_SUPPORT}</a></li>
+                    <li><a href="/{LANG}/contact/">{NAV_CONTACT}</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        {CONTENT}
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>{FOOTER_SITEMAP}</h4>
+                    <ul>
+                        <li><a href="/{LANG}/howto/">{NAV_HOWTO}</a></li>
+                        <li><a href="/{LANG}/database/">{NAV_DATABASE}</a></li>
+                        <li><a href="/{LANG}/case-study/">{NAV_CASESTUDY}</a></li>
+                        <li><a href="/{LANG}/experiment/">{NAV_EXPERIMENT}</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>{FOOTER_SERVICES}</h4>
+                    <ul>
+                        <li><a href="/{LANG}/store/">{NAV_STORE}</a></li>
+                        <li><a href="/{LANG}/support/">{NAV_SUPPORT}</a></li>
+                        <li><a href="/{LANG}/contact/">{NAV_CONTACT}</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>{FOOTER_FOLLOW}</h4>
+                    <ul>
+                        <li><a href="#" rel="noopener">Twitter</a></li>
+                        <li><a href="#" rel="noopener">YouTube</a></li>
+                        <li><a href="#" rel="noopener">GitHub</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>{FOOTER_COPYRIGHT}</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/config/i18n.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/slideshow.js"></script>
+</body>
+</html>
