@@ -37,6 +37,7 @@ body {
 
 .logo-wrapper {
     flex-shrink: 0;
+    min-width: 320px;
 }
 
 .logo {
@@ -224,6 +225,10 @@ body {
     .header-top .container {
         flex-direction: column;
         gap: 15px;
+    }
+    
+    .logo-wrapper {
+        min-width: auto;
     }
     
     .search-input {
