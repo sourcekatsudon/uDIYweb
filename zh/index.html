@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>水下无人机DIY - UnderwaterROV Research Blog</title>
+    <meta name="description" content="提供水下无人机教程、设备数据库和实验报告的研究博客。">
+    
+    <!-- Hreflang attributes -->
+    <link rel="alternate" hreflang="ja" href="/ja/">
+    <link rel="alternate" hreflang="en" href="/en/">
+    <link rel="alternate" hreflang="zh" href="/zh/">
+    <link rel="alternate" hreflang="es" href="/es/">
+    <link rel="alternate" hreflang="x-default" href="/ja/">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="水下无人机DIY - UnderwaterROV Research Blog">
+    <meta property="og:description" content="提供水下无人机教程、设备数据库和实验报告的研究博客。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/zh/">
+    <meta property="og:locale" content="zh_CN">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="/zh/">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/slideshow.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-top">
+            <div class="container">
+                <div class="logo-wrapper">
+                    <a href="/zh/" class="logo">
+                        <svg width="200" height="40" viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="5" y="5" width="30" height="30" fill="#0066cc" rx="5"/>
+                            <circle cx="20" cy="20" r="8" fill="white"/>
+                            <text x="45" y="25" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#333">水下无人机DIY</text>
+                        </svg>
+                    </a>
+                    <span class="logo-tagline">制作、捕获、品尝水下无人机</span>
+                </div>
+                <div class="header-controls">
+                    <div class="language-selector">
+                        <select onchange="changeLanguage(this.value)" aria-label="Language">
+                            <option value="ja">🇯🇵 日本語</option>
+                            <option value="en">🇺🇸 English</option>
+                            <option value="zh" selected>🇨🇳 中文</option>
+                            <option value="es">🇪🇸 Español</option>
+                        </select>
+                    </div>
+                    <div class="search-wrapper">
+                        <input type="search" placeholder="搜索" class="search-input" aria-label="Search">
+                        <button class="search-button" aria-label="Search">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="8" cy="8" r="7" stroke="#666" stroke-width="2"/>
+                                <path d="M13 13L18 18" stroke="#666" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="main-nav">
+            <div class="container">
+                <ul class="nav-list">
+                    <li><a href="/zh/howto/">教程</a></li>
+                    <li><a href="/zh/database/">水下设备数据库</a></li>
+                    <li><a href="/zh/case-study/">案例研究</a></li>
+                    <li><a href="/zh/experiment/">实验报告</a></li>
+                    <li><a href="/zh/store/">商店</a></li>
+                    <li><a href="/zh/support/">支持</a></li>
+                    <li><a href="/zh/contact/">联系我们</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-slideshow">
+            <div class="slideshow-container">
+                <div class="slides" id="slideshow">
+                </div>
+                <div class="slideshow-controls">
+                    <button class="prev" onclick="changeSlide(-1)" aria-label="上一张">&#10094;</button>
+                    <button class="next" onclick="changeSlide(1)" aria-label="下一张">&#10095;</button>
+                </div>
+                <div class="slideshow-dots" id="dots">
+                </div>
+            </div>
+        </section>
+
+        <section class="recommended-articles">
+            <div class="container">
+                <h2 class="section-title">推荐文章</h2>
+                <div class="articles-grid">
+                    <article class="article-card">
+                        <a href="/zh/howto/basic-rov/">
+                            <img src="/images/placeholder1.jpg" alt="基础ROV制作指南">
+                            <h3>基础ROV制作指南</h3>
+                            <p>初学者友好的水下无人机制作指南</p>
+                        </a>
+                    </article>
+                    <article class="article-card">
+                        <a href="/zh/database/motors/">
+                            <img src="/images/placeholder2.jpg" alt="推进电机选择指南">
+                            <h3>推进电机选择指南</h3>
+                            <p>按应用分类的电机比较和选择</p>
+                        </a>
+                    </article>
+                    <article class="article-card">
+                        <a href="/zh/case-study/deep-sea/">
+                            <img src="/images/placeholder3.jpg" alt="深海ROV项目">
+                            <h3>深海ROV项目</h3>
+                            <p>1000米级深海ROV开发案例</p>
+                        </a>
+                    </article>
+                    <article class="article-card">
+                        <a href="/zh/experiment/waterproof/">
+                            <img src="/images/placeholder4.jpg" alt="防水技术报告">
+                            <h3>防水技术报告</h3>
+                            <p>防水方法的比较测试结果</p>
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>网站地图</h4>
+                    <ul>
+                        <li><a href="/zh/howto/">教程</a></li>
+                        <li><a href="/zh/database/">水下设备数据库</a></li>
+                        <li><a href="/zh/case-study/">案例研究</a></li>
+                        <li><a href="/zh/experiment/">实验报告</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>服务</h4>
+                    <ul>
+                        <li><a href="/zh/store/">商店</a></li>
+                        <li><a href="/zh/support/">支持</a></li>
+                        <li><a href="/zh/contact/">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>关注我们</h4>
+                    <ul>
+                        <li><a href="#" rel="noopener">Twitter</a></li>
+                        <li><a href="#" rel="noopener">YouTube</a></li>
+                        <li><a href="#" rel="noopener">GitHub</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 水下无人机DIY. 版权所有。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/config/i18n.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/slideshow.js"></script>
+</body>
+</html>

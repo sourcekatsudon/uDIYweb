@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dron Submarino DIY - UnderwaterROV Research Blog</title>
+    <meta name="description" content="Blog de investigación que proporciona tutoriales de drones submarinos, base de datos de equipos e informes de experimentos.">
+    
+    <!-- Hreflang attributes -->
+    <link rel="alternate" hreflang="ja" href="/ja/">
+    <link rel="alternate" hreflang="en" href="/en/">
+    <link rel="alternate" hreflang="zh" href="/zh/">
+    <link rel="alternate" hreflang="es" href="/es/">
+    <link rel="alternate" hreflang="x-default" href="/ja/">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Dron Submarino DIY - UnderwaterROV Research Blog">
+    <meta property="og:description" content="Blog de investigación que proporciona tutoriales de drones submarinos, base de datos de equipos e informes de experimentos.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/es/">
+    <meta property="og:locale" content="es_ES">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="/es/">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/slideshow.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-top">
+            <div class="container">
+                <div class="logo-wrapper">
+                    <a href="/es/" class="logo">
+                        <svg width="200" height="40" viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="5" y="5" width="30" height="30" fill="#0066cc" rx="5"/>
+                            <circle cx="20" cy="20" r="8" fill="white"/>
+                            <text x="45" y="25" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#333">Dron Submarino DIY</text>
+                        </svg>
+                    </a>
+                    <span class="logo-tagline">Construir, Capturar y Comer con Drones Submarinos</span>
+                </div>
+                <div class="header-controls">
+                    <div class="language-selector">
+                        <select onchange="changeLanguage(this.value)" aria-label="Language">
+                            <option value="ja">🇯🇵 日本語</option>
+                            <option value="en">🇺🇸 English</option>
+                            <option value="zh">🇨🇳 中文</option>
+                            <option value="es" selected>🇪🇸 Español</option>
+                        </select>
+                    </div>
+                    <div class="search-wrapper">
+                        <input type="search" placeholder="Buscar" class="search-input" aria-label="Search">
+                        <button class="search-button" aria-label="Search">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="8" cy="8" r="7" stroke="#666" stroke-width="2"/>
+                                <path d="M13 13L18 18" stroke="#666" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="main-nav">
+            <div class="container">
+                <ul class="nav-list">
+                    <li><a href="/es/howto/">Tutoriales</a></li>
+                    <li><a href="/es/database/">Base de Datos de Equipos Submarinos</a></li>
+                    <li><a href="/es/case-study/">Estudios de Caso</a></li>
+                    <li><a href="/es/experiment/">Informes de Experimentos</a></li>
+                    <li><a href="/es/store/">Tienda</a></li>
+                    <li><a href="/es/support/">Soporte</a></li>
+                    <li><a href="/es/contact/">Contacto</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-slideshow">
+            <div class="slideshow-container">
+                <div class="slides" id="slideshow">
+                </div>
+                <div class="slideshow-controls">
+                    <button class="prev" onclick="changeSlide(-1)" aria-label="Anterior">&#10094;</button>
+                    <button class="next" onclick="changeSlide(1)" aria-label="Siguiente">&#10095;</button>
+                </div>
+                <div class="slideshow-dots" id="dots">
+                </div>
+            </div>
+        </section>
+
+        <section class="recommended-articles">
+            <div class="container">
+                <h2 class="section-title">ARTÍCULOS RECOMENDADOS</h2>
+                <div class="articles-grid">
+                    <article class="article-card">
+                        <a href="/es/howto/basic-rov/">
+                            <img src="/images/placeholder1.jpg" alt="Guía Básica de Construcción de ROV">
+                            <h3>Guía Básica de Construcción de ROV</h3>
+                            <p>Guía de construcción de drones submarinos para principiantes</p>
+                        </a>
+                    </article>
+                    <article class="article-card">
+                        <a href="/es/database/motors/">
+                            <img src="/images/placeholder2.jpg" alt="Guía de Selección de Motores de Propulsión">
+                            <h3>Guía de Selección de Motores de Propulsión</h3>
+                            <p>Comparación y selección de motores por aplicación</p>
+                        </a>
+                    </article>
+                    <article class="article-card">
+                        <a href="/es/case-study/deep-sea/">
+                            <img src="/images/placeholder3.jpg" alt="Proyecto ROV de Aguas Profundas">
+                            <h3>Proyecto ROV de Aguas Profundas</h3>
+                            <p>Caso de desarrollo de ROV de aguas profundas de clase 1000m</p>
+                        </a>
+                    </article>
+                    <article class="article-card">
+                        <a href="/es/experiment/waterproof/">
+                            <img src="/images/placeholder4.jpg" alt="Informe de Tecnología de Impermeabilización">
+                            <h3>Informe de Tecnología de Impermeabilización</h3>
+                            <p>Resultados de pruebas comparativas de métodos de impermeabilización</p>
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Mapa del Sitio</h4>
+                    <ul>
+                        <li><a href="/es/howto/">Tutoriales</a></li>
+                        <li><a href="/es/database/">Base de Datos de Equipos Submarinos</a></li>
+                        <li><a href="/es/case-study/">Estudios de Caso</a></li>
+                        <li><a href="/es/experiment/">Informes de Experimentos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Servicios</h4>
+                    <ul>
+                        <li><a href="/es/store/">Tienda</a></li>
+                        <li><a href="/es/support/">Soporte</a></li>
+                        <li><a href="/es/contact/">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Síguenos</h4>
+                    <ul>
+                        <li><a href="#" rel="noopener">Twitter</a></li>
+                        <li><a href="#" rel="noopener">YouTube</a></li>
+                        <li><a href="#" rel="noopener">GitHub</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Dron Submarino DIY. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/config/i18n.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/slideshow.js"></script>
+</body>
+</html>

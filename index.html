@@ -3,104 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>水中ドローンDIY - UnderwaterROV Research Blog</title>
-    <link rel="stylesheet" href="css/style.css">
-    <style>
-        .language-redirect {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            flex-direction: column;
-            text-align: center;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
-        .redirect-content {
-            background: rgba(255,255,255,0.1);
-            padding: 40px;
-            border-radius: 10px;
-            backdrop-filter: blur(10px);
-        }
-        .redirect-logo {
-            margin-bottom: 20px;
-        }
-        .language-buttons {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            margin-top: 30px;
-        }
-        .lang-btn {
-            padding: 15px 25px;
-            border: 2px solid rgba(255,255,255,0.3);
-            background: rgba(255,255,255,0.1);
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: all 0.3s;
-            font-size: 16px;
-        }
-        .lang-btn:hover {
-            background: rgba(255,255,255,0.2);
-            border-color: rgba(255,255,255,0.6);
-        }
-        .auto-redirect {
-            margin-top: 20px;
-            font-size: 14px;
-            opacity: 0.8;
-        }
-    </style>
+    <title>水中ドローンDIY - 言語選択</title>
+    <meta name="description" content="水中ドローンDIYの研究ブログ。言語を選択してください。">
+    <link rel="stylesheet" href="css/language-selector.css">
+    
+    <!-- Hreflang for language selection page -->
+    <link rel="alternate" hreflang="ja" href="/ja/">
+    <link rel="alternate" hreflang="en" href="/en/">
+    <link rel="alternate" hreflang="zh" href="/zh/">
+    <link rel="alternate" hreflang="es" href="/es/">
+    <link rel="alternate" hreflang="x-default" href="/">
 </head>
 <body>
-    <div class="language-redirect">
-        <div class="redirect-content">
-            <div class="redirect-logo">
+    <div class="language-selector-container">
+        <div class="selector-content">
+            <div class="logo-section">
                 <svg width="200" height="40" viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg">
                     <rect x="5" y="5" width="30" height="30" fill="white" rx="5"/>
-                    <circle cx="20" cy="20" r="8" fill="#667eea"/>
+                    <circle cx="20" cy="20" r="8" fill="#0066cc"/>
                     <text x="45" y="25" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">水中ドローンDIY</text>
                 </svg>
-            </div>
-            <h1>UnderwaterROV Research Blog</h1>
-            <p>水中ドローン作って採って食べたい</p>
-            
-            <div class="language-buttons">
-                <a href="jp/index.html" class="lang-btn">🇯🇵 日本語</a>
-                <a href="en/index.html" class="lang-btn">🇺🇸 English</a>
-                <a href="zh/index.html" class="lang-btn">🇨🇳 中文</a>
-                <a href="es/index.html" class="lang-btn">🇪🇸 Español</a>
+                <h1>UnderwaterROV Research Blog</h1>
+                <p>Choose your language / 言語を選択 / 选择语言 / Elige tu idioma</p>
             </div>
             
-            <div class="auto-redirect">
-                <p id="redirect-message">リダイレクト中...</p>
+            <div class="language-options">
+                <a href="/ja/" class="language-option" data-lang="ja">
+                    <div class="flag">🇯🇵</div>
+                    <div class="language-info">
+                        <div class="language-name">日本語</div>
+                        <div class="language-description">水中ドローン作って採って食べたい</div>
+                    </div>
+                </a>
+                
+                <a href="/en/" class="language-option" data-lang="en">
+                    <div class="flag">🇺🇸</div>
+                    <div class="language-info">
+                        <div class="language-name">English</div>
+                        <div class="language-description">Build, Catch, and Eat with Underwater Drones</div>
+                    </div>
+                </a>
+                
+                <a href="/zh/" class="language-option" data-lang="zh">
+                    <div class="flag">🇨🇳</div>
+                    <div class="language-info">
+                        <div class="language-name">中文</div>
+                        <div class="language-description">制作、捕获、品尝水下无人机</div>
+                    </div>
+                </a>
+                
+                <a href="/es/" class="language-option" data-lang="es">
+                    <div class="flag">🇪🇸</div>
+                    <div class="language-info">
+                        <div class="language-name">Español</div>
+                        <div class="language-description">Construir, Capturar y Comer con Drones Submarinos</div>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="auto-detect-section">
+                <p id="browser-lang-info">ブラウザ言語を検出中...</p>
+                <button id="auto-redirect-btn" style="display: none;">推奨言語で続行</button>
             </div>
         </div>
     </div>
 
+    <script src="config/i18n.js"></script>
     <script>
-        function detectLanguageAndRedirect() {
-            // ブラウザの言語設定を取得
+        document.addEventListener('DOMContentLoaded', function() {
+            detectBrowserLanguage();
+        });
+        
+        function detectBrowserLanguage() {
             const userLang = navigator.language || navigator.userLanguage;
             const langCode = userLang.toLowerCase();
+            const infoElement = document.getElementById('browser-lang-info');
+            const buttonElement = document.getElementById('auto-redirect-btn');
             
-            let redirectUrl = 'jp/index.html'; // デフォルトは日本語
+            let detectedLang = 'ja'; // デフォルト
+            let langName = '日本語';
             
-            // 言語コードに基づいてリダイレクト先を決定
             if (langCode.startsWith('en')) {
-                redirectUrl = 'en/index.html';
+                detectedLang = 'en';
+                langName = 'English';
             } else if (langCode.startsWith('zh')) {
-                redirectUrl = 'zh/index.html';
+                detectedLang = 'zh';
+                langName = '中文';
             } else if (langCode.startsWith('es')) {
-                redirectUrl = 'es/index.html';
+                detectedLang = 'es';
+                langName = 'Español';
             }
             
-            // 即座にリダイレクト
-            window.location.href = redirectUrl;
+            // 検出された言語をハイライト
+            const detectedOption = document.querySelector(`[data-lang="${detectedLang}"]`);
+            if (detectedOption) {
+                detectedOption.classList.add('recommended');
+            }
+            
+            infoElement.textContent = `ブラウザ言語: ${langName} を検出しました`;
+            buttonElement.textContent = `${langName}で続行`;
+            buttonElement.style.display = 'block';
+            buttonElement.onclick = () => {
+                window.location.href = `/${detectedLang}/`;
+            };
         }
-        
-        // ページロード後に言語検出を実行
-        document.addEventListener('DOMContentLoaded', detectLanguageAndRedirect);
     </script>
 </body>
 </html>

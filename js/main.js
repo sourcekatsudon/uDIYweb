@@ -2,11 +2,15 @@ function changeLanguage(lang) {
     const currentPath = window.location.pathname;
     const pathParts = currentPath.split('/');
     
-    const langIndex = pathParts.findIndex(part => ['jp', 'en', 'zh', 'es'].includes(part));
+    // 現在の言語コードを取得
+    const currentLang = pathParts[1];
+    const supportedLangs = ['ja', 'en', 'zh', 'es'];
     
-    if (langIndex !== -1) {
-        pathParts[langIndex] = lang;
+    if (supportedLangs.includes(currentLang)) {
+        // 既存の言語コードを新しい言語コードに置換
+        pathParts[1] = lang;
     } else {
+        // 言語コードがない場合は先頭に追加
         pathParts.splice(1, 0, lang);
     }
     
