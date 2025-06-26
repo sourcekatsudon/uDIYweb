@@ -66,14 +66,14 @@
             <p>水中ドローン作って採って食べたい</p>
             
             <div class="language-buttons">
-                <a href="jp/" class="lang-btn">🇯🇵 日本語</a>
-                <a href="en/" class="lang-btn">🇺🇸 English</a>
-                <a href="zh/" class="lang-btn">🇨🇳 中文</a>
-                <a href="es/" class="lang-btn">🇪🇸 Español</a>
+                <a href="jp/index.html" class="lang-btn">🇯🇵 日本語</a>
+                <a href="en/index.html" class="lang-btn">🇺🇸 English</a>
+                <a href="zh/index.html" class="lang-btn">🇨🇳 中文</a>
+                <a href="es/index.html" class="lang-btn">🇪🇸 Español</a>
             </div>
             
             <div class="auto-redirect">
-                <p id="redirect-message">ブラウザの言語設定を検出しています...</p>
+                <p id="redirect-message">リダイレクト中...</p>
             </div>
         </div>
     </div>
@@ -84,29 +84,19 @@
             const userLang = navigator.language || navigator.userLanguage;
             const langCode = userLang.toLowerCase();
             
-            let redirectUrl = 'jp/'; // デフォルトは日本語
-            let langName = '日本語';
+            let redirectUrl = 'jp/index.html'; // デフォルトは日本語
             
             // 言語コードに基づいてリダイレクト先を決定
             if (langCode.startsWith('en')) {
-                redirectUrl = 'en/';
-                langName = 'English';
+                redirectUrl = 'en/index.html';
             } else if (langCode.startsWith('zh')) {
-                redirectUrl = 'zh/';
-                langName = '中文';
+                redirectUrl = 'zh/index.html';
             } else if (langCode.startsWith('es')) {
-                redirectUrl = 'es/';
-                langName = 'Español';
+                redirectUrl = 'es/index.html';
             }
             
-            // メッセージを更新
-            const messageElement = document.getElementById('redirect-message');
-            messageElement.textContent = `${langName}ページに移動します... (3秒後)`;
-            
-            // 3秒後にリダイレクト
-            setTimeout(() => {
-                window.location.href = redirectUrl;
-            }, 3000);
+            // 即座にリダイレクト
+            window.location.href = redirectUrl;
         }
         
         // ページロード後に言語検出を実行
