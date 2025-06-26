@@ -5,8 +5,8 @@ let slideInterval;
 async function loadSlideImages() {
     // eyecatchフォルダ内の画像を直接指定
     const images = [
-        '/eyecatch/images.jpeg',
-        '/eyecatch/products_layer_m2.png'
+        '../eyecatch/images.jpeg',
+        '../eyecatch/products_layer_m2.png'
     ];
     
     const slideshowContainer = document.getElementById('slideshow');
